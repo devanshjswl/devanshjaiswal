@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Devansh Jaiswal — Tech Geek & Web Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
 :root {
   --bg: #06060f;
@@ -333,6 +333,28 @@ footer {
 .reveal { opacity:0; transform:translateY(36px); transition:opacity .8s ease,transform .8s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
 
+/* ── LANG TOGGLE ── */
+.lang-toggle {
+  display:flex; align-items:center;
+  background:var(--muted); border-radius:100px;
+  padding:3px; gap:2px;
+  border:1px solid var(--muted2);
+  flex-shrink:0;
+}
+.lang-btn {
+  background:none; border:none; cursor:pointer;
+  font-family:'DM Mono',monospace; font-size:.72rem;
+  letter-spacing:.1em; color:rgba(238,234,227,.4);
+  padding:.32rem .75rem; border-radius:100px;
+  transition:all .25s; line-height:1;
+}
+.lang-btn.active {
+  background:var(--accent); color:var(--bg);
+  font-weight:500;
+}
+/* Hindi font support */
+.hi-mode { font-family:'Noto Sans Devanagari','DM Mono',monospace !important; }
+
 /* ── NOISE ── */
 body::after {
   content:''; position:fixed; inset:0; pointer-events:none; z-index:9997; opacity:.025;
@@ -393,6 +415,10 @@ body::after {
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <div class="lang-toggle" id="langToggle">
+    <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+    <button class="lang-btn"        id="btnHI" onclick="setLang('hi')">हि</button>
+  </div>
   <button class="hamburger" id="ham" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -429,7 +455,7 @@ body::after {
       +91 70547 29844
     </a>
     <!-- Replace YOUR@EMAIL.COM below -->
-    <a href="mailto:devanshjswl1@gmail.com" class="contact-pill">
+    <a href="/cdn-cgi/l/email-protection#4a13051f180a0f070b030664090507" class="contact-pill">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Email me
     </a>
@@ -453,16 +479,18 @@ body::after {
 <!-- ABOUT -->
 <section id="about">
   <div class="reveal">
-    <div class="section-eyebrow">01 — About me</div>
-    <h2 class="about-h">Turning <em>ideas</em> into<br>reality, pixel by pixel.</h2>
-    <p class="about-p">I'm Devansh — 18, freshly out of 12th standard and already neck-deep in the tech world. I don't just make websites, I build experiences that hook people from the first second.</p>
-    <p class="about-p">Clean code, bold aesthetics, and zero excuses. If it can be built, I'll figure it out.</p>
+    <div class="section-eyebrow" data-en="01 — About me" data-hi="०१ — मेरे बारे में">01 — About me</div>
+    <h2 class="about-h">
+      <span data-en="Turning " data-hi="बदल रहा हूँ ">Turning </span><em data-en="ideas" data-hi="सपनों को">ideas</em><span data-en=" into<br>reality, pixel by pixel." data-hi=" हकीकत में,<br>एक-एक पिक्सेल करके।"> into<br>reality, pixel by pixel.</span>
+    </h2>
+    <p class="about-p" data-en="I'm Devansh — 18, freshly out of 12th standard and already neck-deep in the tech world. I don't just make websites, I build experiences that hook people from the first second." data-hi="मैं देवांश हूँ — 18 साल का, अभी-अभी 12वीं पास की है और पहले से ही टेक की दुनिया में गहरा उतर चुका हूँ। मैं सिर्फ वेबसाइट नहीं बनाता, ऐसे अनुभव तैयार करता हूँ जो पहले सेकंड से लोगों को बाँध लें।">I'm Devansh — 18, freshly out of 12th standard and already neck-deep in the tech world. I don't just make websites, I build experiences that hook people from the first second.</p>
+    <p class="about-p" data-en="Clean code, bold aesthetics, and zero excuses. If it can be built, I'll figure it out." data-hi="साफ कोड, दमदार डिज़ाइन, और कोई बहाना नहीं। अगर बनाया जा सकता है, तो मैं बना के दिखाऊँगा।">Clean code, bold aesthetics, and zero excuses. If it can be built, I'll figure it out.</p>
   </div>
   <div class="stats reveal">
-    <div class="stat"><div class="stat-n">18</div><div class="stat-l">Years old</div></div>
-    <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Ideas to build</div></div>
-    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Passion driven</div></div>
-    <div class="stat"><div class="stat-n">0</div><div class="stat-l">Projects abandoned</div></div>
+    <div class="stat"><div class="stat-n">18</div><div class="stat-l" data-en="Years old" data-hi="साल की उम्र">Years old</div></div>
+    <div class="stat"><div class="stat-n">∞</div><div class="stat-l" data-en="Ideas to build" data-hi="बनाने के आइडिया">Ideas to build</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l" data-en="Passion driven" data-hi="जुनून से भरा">Passion driven</div></div>
+    <div class="stat"><div class="stat-n">0</div><div class="stat-l" data-en="Projects abandoned" data-hi="छोड़े गए प्रोजेक्ट">Projects abandoned</div></div>
   </div>
 </section>
 
@@ -471,18 +499,18 @@ body::after {
 <!-- SKILLS -->
 <section id="skills">
   <div class="reveal">
-    <div class="section-eyebrow" style="justify-content:center">02 — Skills</div>
-    <h2 class="skills-h">What I bring to <span>the table</span>.</h2>
+    <div class="section-eyebrow" style="justify-content:center" data-en="02 — Skills" data-hi="०२ — कौशल">02 — Skills</div>
+    <h2 class="skills-h"><span data-en="What I bring to " data-hi="मैं क्या लाता हूँ ">What I bring to </span><span data-en="the table" data-hi="मेज पर">the table</span><span>.</span></h2>
   </div>
   <div class="skills-grid reveal">
-    <div class="chip">HTML &amp; CSS</div>
-    <div class="chip">JavaScript</div>
-    <div class="chip">Web Design</div>
-    <div class="chip">UI / UX</div>
-    <div class="chip">Problem Solving</div>
-    <div class="chip">Responsive Design</div>
-    <div class="chip">Animations</div>
-    <div class="chip">Fast Learner</div>
+    <div class="chip" data-en="HTML &amp; CSS" data-hi="HTML और CSS">HTML &amp; CSS</div>
+    <div class="chip" data-en="JavaScript" data-hi="जावास्क्रिप्ट">JavaScript</div>
+    <div class="chip" data-en="Web Design" data-hi="वेब डिज़ाइन">Web Design</div>
+    <div class="chip" data-en="UI / UX" data-hi="UI / UX">UI / UX</div>
+    <div class="chip" data-en="Problem Solving" data-hi="समस्या सुलझाना">Problem Solving</div>
+    <div class="chip" data-en="Responsive Design" data-hi="रिस्पॉन्सिव डिज़ाइन">Responsive Design</div>
+    <div class="chip" data-en="Animations" data-hi="एनिमेशन">Animations</div>
+    <div class="chip" data-en="Fast Learner" data-hi="तेज़ सीखने वाला">Fast Learner</div>
   </div>
 </section>
 
@@ -496,34 +524,34 @@ body::after {
     <p class="contact-sub">Got a project? A website idea? Or just want to say hi?<br>Reach out — I respond fast.</p>
 
     <div class="contact-cards">
-      <a href="https://wa.me/917054728440" class="ccard wa" target="_blank">
+      <a href="https://wa.me/917054729844" class="ccard wa" target="_blank">
         <div class="cicon">💬</div>
         <div class="ctitle">WhatsApp</div>
-        <div class="cval">+91 70547 28440</div>
+        <div class="cval">+91 70547 29844</div>
       </a>
-      <a href="mailto:YOUR@EMAIL.COM" class="ccard">
+      <a href="/cdn-cgi/l/email-protection#f4adbba1a6b4b1b9b5bdb8dab7bbb9" class="ccard">
         <div class="cicon">✉️</div>
         <div class="ctitle">Email</div>
-        <div class="cval">YOUR@EMAIL.COM</div>
+        <div class="cval"><span class="__cf_email__" data-cfemail="88d1c7dddac8cdc5c9c1c4a6cbc7c5">[email&#160;protected]</span></div>
       </a>
     </div>
 
     <div class="socials-row">
-      <a href="https://instagram.com/YOUR_USERNAME" class="soc-btn" target="_blank">📸 Instagram</a>
+      <a href="https://instagram.com/devanshhh.25" class="soc-btn" target="_blank">📸 Instagram</a>
       <a href="https://x.com/YOUR_USERNAME" class="soc-btn" target="_blank">𝕏 Twitter</a>
       <a href="https://linkedin.com/in/YOUR_USERNAME" class="soc-btn" target="_blank">💼 LinkedIn</a>
-      <a href="https://youtube.com/@YOUR_CHANNEL" class="soc-btn" target="_blank">▶ YouTube</a>
+      <a href="https://youtube.com/@devanshjswl" class="soc-btn" target="_blank">▶ YouTube</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2025 Devansh Jaiswal</span>
+  <span>© 2026 Devansh Jaiswal</span>
   <span>Built with obsession &amp; late nights.</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── CURSOR ── */
 const cur = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
@@ -625,16 +653,53 @@ document.querySelectorAll('.reveal').forEach(el => {
   }, {threshold:.12}).observe(el);
 });
 
+/* ── LANGUAGE TOGGLE ── */
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+
+  // Update toggle button states
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnHI').classList.toggle('active', lang === 'hi');
+
+  // Translate all elements with data-en / data-hi
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (!text) return;
+
+    // Use innerHTML so <br> tags in translations render correctly
+    el.innerHTML = text;
+  });
+
+  // Switch font for Hindi
+  const sections = document.querySelectorAll('#about, #skills');
+  sections.forEach(s => {
+    if (lang === 'hi') s.classList.add('hi-mode');
+    else s.classList.remove('hi-mode');
+  });
+
+  // Animate a subtle flash to signal the switch
+  const flash = document.createElement('div');
+  flash.style.cssText = `
+    position:fixed; inset:0; z-index:9990;
+    background:var(--accent); opacity:0;
+    pointer-events:none;
+    animation:langFlash .35s ease forwards;
+  `;
+  document.body.appendChild(flash);
+  setTimeout(() => flash.remove(), 400);
+}
+
+// Inject flash keyframe dynamically
+const flashStyle = document.createElement('style');
+flashStyle.textContent = `
+  @keyframes langFlash {
+    0%   { opacity:.08; }
+    100% { opacity:0; }
+  }
+`;
+document.head.appendChild(flashStyle);
+
 /* ── TYPED BADGE ── */
-const badgeEl = document.getElementById('typed-badge');
-const badgeText = 'Available for projects';
-let ti = 0;
-setTimeout(() => {
-  const t = setInterval(() => {
-    badgeEl.textContent = badgeText.slice(0, ++ti);
-    if(ti >= badgeText.length) clearInterval(t);
-  }, 55);
-}, 400);
-</script>
-</body>
-</html>
+const badgeEl = document.getElementById
